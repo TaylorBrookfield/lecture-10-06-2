@@ -1,0 +1,50 @@
+//args and parameters
+         // var otherArray = ["string", "string"]; Global VAR can be accessed anywhere
+
+         function getSabioPeople()
+         {
+            var arrayOfPeople = [ 
+                //LOCAL VAR - local vars can only be accessed in parent scope.
+                { firstName: "John", isStudent: true },
+                { firstName: "Sally", isStudent: false },
+                { firstName: "Jane", isStudent: true },
+            ];
+
+            filterPeople(arrayOfPeople); //function invokation - this is where the argument goes.
+         }
+
+         function filterPeople (array) 
+         {
+            console.log(array);
+
+            for (let index = 0; index < array.legth; index ++){
+                //whatever is in the scope of my loop, will run for every member of the array.
+                const person = array[index]; //person is an object inside of our arrayOfPeople
+                //console.log(person, idex);
+                if(person.isStudent == true){
+                    receiveStudent(person);
+                }
+                else {
+                    recieveAdmin(person);
+                }
+            }
+         }
+
+         //#region NOTES
+         // Parameter - Local variable to the function
+         //param lives within the function definition
+         //Param has no value, until the function is invoked and given an argument
+         //anytime the function is invoked with an argument,
+         //that argument will become the VALUE for the param, in the function definition.
+         //#endregion
+         receiveStudent("john"); //WhAT I INVOKE THE FUNCTION WITH AS AN ARG< IS WHAT THE PARAMETERS WILL BE 
+         function receiveStudent(student)
+         {
+            console.log(student);
+            //return student;
+         }
+
+         function recieveAdmin(admin)
+         {
+
+         }
